@@ -1,0 +1,7 @@
+query:
+object:
+- "photonic computing"
+- "optical computing"
+method:
+- "neural network"
+time_window: [2020, 2025]
