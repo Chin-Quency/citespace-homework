@@ -98,4 +98,4 @@ def analyze_evidence_statistics(csv_path):
     print("\n" + "█" * 60)
 
 if __name__ == "__main__":
-    analyze_evidence_statistics("outputs/evidence_raw_data.csv")
+    analyze_evidence_statistics("../outputs/evidence_raw_data.csv")

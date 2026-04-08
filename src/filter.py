@@ -108,4 +108,4 @@ def run_screening(input_path, output_csv):
     print("="*30)
 
 # 执行
-run_screening("data/spacetext.txt", "outputs/screening_results.csv")
+run_screening("../data/spacetext.txt", "../outputs/screening_results.csv")

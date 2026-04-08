@@ -92,4 +92,4 @@ def generate_evidence_chain_from_csv(input_csv, output_csv):
         print(f"💾 已保存至: {output_csv}")
 
 # 修改调用处
-generate_evidence_chain_from_csv("outputs/screening_results.csv", "outputs/evidence_raw_data.csv")
+generate_evidence_chain_from_csv("../outputs/screening_results.csv", "../outputs/evidence_raw_data.csv")
