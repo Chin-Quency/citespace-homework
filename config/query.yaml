@@ -1,5 +1,9 @@
 query:
 object:
 - "bci interface"
+- "circuit"
+- "signal acquisition"
+method:
 - "signal processing"
+- "digital signal processing"
 time_window: [2020, 2025]
