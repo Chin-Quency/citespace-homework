@@ -50,15 +50,15 @@ def get_data_stats(df: pd.DataFrame) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    data_path = "../data/spacetext.txt"  # 相对路径，根据项目结构调整
+    data_path = "data/spacetext.txt"  # 相对路径，根据项目结构调整
     df = load_wos_data(data_path)
     stats = get_data_stats(df)
     print("数据规模:", len(df))
     print(stats)
-    stats.to_csv("../outputs/field_stats.csv", encoding='utf-8-sig')
+    stats.to_csv("outputs/field_stats.csv", encoding='utf-8-sig')
 
     import matplotlib.pyplot as plt
 
     missing_rate = df.isnull().sum() / len(df)
-    missing_rate.plot(kind='bar', title='字段缺失率')
+    missing_rate.plot(kind='bar', title='missing rate')
     plt.show()

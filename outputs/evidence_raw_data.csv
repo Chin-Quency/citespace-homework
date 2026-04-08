@@ -1,0 +1,260 @@
+﻿Title,Year,Method,Data,Application,Performance
+A Brain-Computer Interface for Robot Navigation,2012.0,P300 | ICA,N/A,Robot Navigation/Control,N/A
+DE-NOISING OF EEG SIGNAL FOR EMOTION RECOGNITION,2015.0,ICA,N/A,N/A,N/A
+State of the Art of Non-Invasive Electrode Materials for Brain-Computer    Interface,2021.0,ELECTRODE | ICA,N/A,N/A,N/A
+EEGTCT: Electroencephalogram-Based Chinese Text Decoding,2025.0,DECODING | ELECTRODE,N/A,N/A,N/A
+Decoding subjective preference from single-trial near-infrared    spectroscopy signals,2009.0,NEAR-INFRARED SPECTROSCOPY | DECODING | ICA,N/A,N/A,N/A
+Ethical and Social Issues Behind Brain-Computer Interface,2013.0,ICA,N/A,Stroke Rehabilitation,N/A
+Computerized Brain Interfaces for Adaptive Learning and Assessment,2018.0,ICA,N/A,N/A,N/A
+NCyborg Project - A new stroke rehabilitation pattern based on brain    computer interface,2021.0,ICA,N/A,Stroke Rehabilitation,N/A
+"Discrimination of Rest, Motor Imagery and Movement for Brain-Computer    Interface Applications",2018.0,ELECTRODE | ICA,N/A,N/A,N/A
+Comprehensive EEG Signal Analysis for Brain-Computer Interface,2008.0,SIGNAL ANALYSIS | ICA,N/A,N/A,N/A
+Improving Classification of Slow Cortical Potential Signals for BCI    Systems With Polynomial Fitting and Voting Support Vector Machine,2018.0,ICA,N/A,Robot Navigation/Control,N/A
+Quake Delirium EEG A Pilot Study Regarding Biofeedback-Driven Visual    Effects in a Computer Game,2015.0,ICA,N/A,N/A,N/A
+Masking Empirical Mode Decomposition-Based Hybrid Features for    Recognition of Motor Imagery in EEG,2017.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+The Development of a Brain-Controlled Lock Based on SSVEP and MI,2018.0,ICA | SSVEP | STEADY STATE | VEP | MOTOR IMAGERY,N/A,N/A,N/A
+Extracting common spatial patterns from EEG time segments for    classifying motor imagery classes in a Brain Computer Interface (BCI),2013.0,ICA | CLASSIFIER | MOTOR IMAGERY,N/A,Robot Navigation/Control,N/A
+Classifying EEG signals in fisher discriminant spaces by random    electrode selection,2008.0,ELECTRODE | CLASSIFIER | ICA,N/A,N/A,N/A
+Can Mind Wandering Be Measured Using the Unicorn Hybrid Black? A Pilot    Study,2025.0,MACHINE LEARNING | ICA,N/A,N/A,N/A
+Analysis of EEG Mapping Images to Differentiate Mental Tasks in    Brain-Computer Interfaces,2011.0,CLASSIFIER | ICA,N/A,N/A,N/A
+P300 Detection with Brain-Computer Interface Application Using PCA and    Ensemble of Weighted SVMs,2018.0,P300 | CLASSIFIER | ICA,N/A,BCI Speller,N/A
+Effective User Training for Motor Imagery Based Brain Computer Interface    with Object-directed 3D Visual Display,2014.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Optimizing Largest Lyapunov Exponent Utilizing an Intelligent Water Drop    algorithm: A Brain Computer Interface Study,2019.0,ICA,N/A,N/A,N/A
+Reconstructing language from brain signals and deconstructing    adversarial thought-reading,2023.0,ICA,N/A,N/A,N/A
+Classification of EEG-based Brain Waves for Motor Imagery using Support    Vector Machine,2019.0,CLASSIFIER | ICA,N/A,N/A,N/A
+Development of SSVEP-based BCI using Common Frequency Pattern to Enhance    System Performance,2014.0,ICA | CLASSIFIER | VEP | SSVEP,N/A,N/A,N/A
+Phase Resetting and Evoked Activity Contribute to the Genesis of P300    Signal in BCI System,2009.0,P300,N/A,N/A,N/A
+Optimized Backpropagation Neural Network Model For Brain Computer    Interface System,2019.0,CLASSIFIER | ICA,N/A,Stroke Rehabilitation,N/A
+An Ensemble Approach for Brain Computer Interface Applications,2016.0,P300 | MACHINE LEARNING | ICA,N/A,BCI Speller,N/A
+Minimizing electrodes for effective brain computer interface,2021.0,ELECTRODE | ICA | CLASSIFIER | MOTOR IMAGERY,N/A,N/A,N/A
+Wavelet Multi-level Multi-scale Neural Network for EEG Classification,2024.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+A P300 based online brain-computer interface system for virtual hand    control,2010.0,P300 | CLASSIFIER | ICA,N/A,N/A,N/A
+Research of Feature Extraction of BCI Based on Common Spatial Pattern    and Wavelet Packet Decomposition,2009.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Improving the Performance of Online Classifier by Removing the Error    Samples from Offline Training Data,2015.0,ICA,N/A,N/A,N/A
+MEG Classification Based on Band Power and Statistical Characteristics,2015.0,ICA,N/A,N/A,N/A
+Null Ain't Dull: New Perspectives on Motor Cortex,2018.0,CIRCUIT | ICA,N/A,N/A,N/A
+Spatial Auditory Two-step Input Japanese Syllabary Brain-computer    Interface Speller,2014.0,P300 | ICA,N/A,BCI Speller,N/A
+Advances in P300 brain-computer interface spellers: toward paradigm    design and performance evaluation,2022.0,P300 | SENSOR | ICA,N/A,BCI Speller,N/A
+A Comprehensive Survey of Brain-Computer Interface Technology in Health    care: Research Perspectives,2025.0,ICA,N/A,Stroke Rehabilitation,N/A
+recoveriX: A New BCI-based Technology for Persons with Stroke,2016.0,ICA | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+A Brain Computer Interface for Smart Home Control,2013.0,ICA,N/A,N/A,N/A
+Recursive Fisher Linear Discriminant for BCI applications,2007.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Hidden Markov models for online classification of single trial EEG data,2001.0,ICA,N/A,N/A,N/A
+Experiment study of the relation between motion complexity and    event-related desynchronization/synchronization,2005.0,N/A,N/A,N/A,N/A
+P300 Detection Using Nonlinear Independent Component Analysis,2013.0,INDEPENDENT COMPONENT ANALYSIS | NONLINEAR | P300 | ICA,N/A,N/A,N/A
+BCI Meeting 2005 -: Workshop on technology:: Hardware and software,2006.0,ICA,N/A,N/A,N/A
+Strange Loops : Augmenting Feelings,2023.0,ICA,N/A,N/A,N/A
+Brains and Blocks: Introducing Novice Programmers to Brain-Computer    Interface Application Development,2019.0,ICA,N/A,N/A,N/A
+An Application of Digital Signal Processor in Brain-computer Interface    Based on Steady-State Visual Evoked Potential,2010.0,VEP | SSVEP,N/A,N/A,N/A
+A Brain Computer Interface Based on Motion-onset VEPs,2008.0,ICA | VEP | MOTION-ONSET,N/A,N/A,N/A
+Control of the 6-Axis Robot Using a Brain-Computer Interface Based on    Steady State Visually Evoked Potential (SSVEP),2019.0,STEADY STATE | ICA | VEP | SSVEP,N/A,Robot Navigation/Control,N/A
+Brain-Computer Interface using Near-Infrared Spectroscopy for    Rehabilitation,2010.0,NEAR-INFRARED SPECTROSCOPY | ICA,N/A,Stroke Rehabilitation,N/A
+ENHANCED MOTOR IMAGERY-BASED EEG CLASSIFICATION USING A DISCRIMINATIVE    GRAPH FOURIER SUBSPACE,2022.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+A Brain-computer Interface controlled Mail Client,2013.0,P300 | ICA | MOTOR IMAGERY,N/A,BCI Speller,N/A
+Introduction: Addressing the Ethical Challenges of Brain-Computer    Interface Technology,2023.0,ICA,N/A,N/A,N/A
+Extracting Error-Related Potentials from Motion Imagination EEG in    Noninvasive Brain-Computer Interface,2017.0,ICA,N/A,Robot Navigation/Control,N/A
+Recent advances in polymer-based thin-film electrodes for ECoG    applications,2025.0,ELECTRODE | ICA,N/A,N/A,N/A
+Cortical imaging of sensorimotor rhythm during online control of    Brain-Computer Interface,2007.0,ICA | SENSOR | MOTOR IMAGERY,N/A,N/A,N/A
+Analysis of Performance Metrics Using Emotiv EPOC,2018.0,ICA,N/A,N/A,N/A
+Using A Brain Computer Interface For Virtual Environment Control,2008.0,P300,N/A,N/A,N/A
+Steady State Visual Evoked Potential (SSVEP) - Based Brain Spelling    System with Synchronous and Asynchronous Typing Modes,2011.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+Fingertip Stimulus Cue-based Tactile Brain-computer Interface,2015.0,SENSOR | ICA,N/A,N/A,N/A
+Performance Analysis of Different Techniques for Brain Computer    Interfacing,2013.0,ICA,N/A,N/A,N/A
+A zero-training algorithm for EEG single-trial classification applied to    a face recognition ERP experiment,2010.0,MACHINE LEARNING | ICA,N/A,Robot Navigation/Control,N/A
+iMind: An alternative dialogue between viewers and artists,2014.0,ICA,N/A,N/A,N/A
+A Review of Methods and Applications of Brain Computer Interface Systems,2016.0,ICA,N/A,N/A,N/A
+Comparison of signal decomposition methods in classification of EEG    signals for motor-imagery BCI system,2017.0,ICA | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+Channel Modelling Based on Statistical Analysis for    Brain-Computer-Interface (BCI) Applications,2016.0,SENSOR,N/A,N/A,N/A
+Wavelet and Hilbert Transform-based Brain Computer Interface,2009.0,ICA,N/A,Stroke Rehabilitation,N/A
+Sparse Optimal Score based on Generalized Elastic Net Model for Brain    Computer Interface,2016.0,P300 | ICA,N/A,N/A,N/A
+Brain-Computer Interface: Current and Emerging Rehabilitation    Applications,2015.0,ICA,N/A,Stroke Rehabilitation,N/A
+PHASE-BASED DETECTION OF INTENTIONAL STATE FOR ASYNCHRONOUS BRAIN    COMPUTER INTERFACE,2015.0,ICA | CLASSIFIER | VEP | SSVEP,N/A,N/A,N/A
+Motor Imagery EEG Signal Classification for Stroke Survivors    Rehabilitation,2022.0,ICA | ELECTRODE | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+GANet: A Convolution Neural Network with Parallel Convolutions and    Graph-Based Attention Mechanism for Event-Related Potential    Classification in Brain-Computer Interface Task,2026.0,ICA,N/A,N/A,N/A
+A Wearable Wireless Brain-Computer Interface Using Steady-State Visual    Evoked Potentials,2018.0,ICA | SSVEP | VEP | CLASSIFIER | ELECTRODE,N/A,N/A,N/A
+Embedded Prediction in Feature Extraction: Application to Single-Trial    EEG Discrimination,2013.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+A Review of Research Progress on Brain-Computer Interface Systems for    Rapid Serial Visual Presentation Based on ElectroEncephaloGram,2024.0,DECODING | ICA,N/A,N/A,N/A
+Signal analysis and classification of a novel active brain-computer    interface based on four-category sequential coding,2022.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Universal neurophysiological interpretation of EEG brain-computer    interfaces,2021.0,MACHINE LEARNING | ELECTRODE | ICA,N/A,N/A,N/A
+Brain-computer Interface Systems for Smart Homes - A Review Study,2021.0,,N/A,N/A,N/A
+BCI competition 2003 - Data sets Ib and IIb: Feature extraction from    event-related brain potentials with the continuous wavelet transform and    the t-value scalogram,2004.0,P300 | ICA,N/A,BCI Speller,N/A
+Just Think: Smart BCI Applications,2013.0,ICA,N/A,N/A,N/A
+Effects of Spatial Stimulus Overlap in a Visual P300-based    Brain-computer Interface,2020.0,P300 | ICA,N/A,N/A,N/A
+k-NN and LDA based Motor Imagery EEG Classification using Phase Features,2018.0,SENSOR | ICA | CLASSIFIER | MOTOR IMAGERY,N/A,N/A,N/A
+Power Spectral Entropy Analysis of EEG Signal Based-on BCI,2013.0,CLASSIFIER | ICA,N/A,N/A,N/A
+"MindNinja: Concept, development and evaluation of a mind action game    based on EEGs",2014.0,ICA,N/A,N/A,N/A
+Evaluation of brain-computer interfaces in accessing computer and other    devices by people with severe motor impairments,2012.0,ICA,N/A,N/A,N/A
+Multiway Canonical Correlation Analysis for Frequency Components    Recognition in SSVEP-Based BCIs,2011.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+"Current Status, Challenges, and Possible Solutions of EEG-Based    Brain-Computer Interface: A Comprehensive Review",2020.0,ICA,N/A,N/A,N/A
+Steady-state somatosensory evoked potentials: Suitable brain signals for    brain-computer interfaces?,2006.0,SENSOR | ICA,N/A,N/A,N/A
+Identification With Your Mind: A Hybrid BCI-Based Authentication    Approach for Anti-Shoulder-Surfing Attacks Using EEG and Eye Movement    Data,2023.0,ICA,N/A,N/A,N/A
+Exploring virtual environments with an EEG-based BCI through motor    imagery,2005.0,ICA,N/A,N/A,N/A
+DECODING MOVEMENT IMAGINATION AND EXECUTION FROM EEG SIGNALS USING    BCI-TRANSFER LEARNING METHOD BASED ON RELATION NETWORK,2020.0,DECODING | ICA,N/A,N/A,N/A
+Implementation of genetic algorithms to feature selection for the use of    brain-computer interface,2011.0,ELECTRODE,N/A,N/A,N/A
+BCI competition 2003 - Data set IIa: Spatial patterns of self-controlled    brain rhythm modulations,2004.0,ICA,N/A,N/A,N/A
+Does mastery confidence influence P300 based Brain-Computer Interface    (BCI) Performance?,2016.0,P300 | ICA,N/A,BCI Speller,N/A
+Automatic Gesture Recognition for Human-Machine Interaction: An Overview,2022.0,ICA,N/A,N/A,N/A
+Sparse Bayesian multiway canonical correlation analysis for EEG pattern    recognition,2017.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+Emotiv EPOC neuroheadset in Brain - Computer Interface,2014.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+Efficient Event Related Oscillatory Pattern Classification for EEG Based    BCI Utilizing Spatial Brain Dynamics,2014.0,ICA | ELECTRODE | MOTOR IMAGERY,N/A,N/A,N/A
+Using EEG Based Brain-Computer Interface to Control Actions in    Applications - The Way to Provide New Possibilities for Disabled People,2021.0,ICA,N/A,N/A,N/A
+Evaluation of EEG features during Overt Visual Attention during    Neurofeedback Game,2014.0,ICA,N/A,N/A,N/A
+A Channel Selection Method for Event Related Potential Detection based    on Random Forest and Genetic Algorithm,2020.0,P300 | ICA,N/A,N/A,N/A
+The Thought Translation Device: Structure of a multimodal brain-computer    communication system,2003.0,CLASSIFIER | ICA,N/A,N/A,N/A
+Application of digital signal processing method in ultrasonic flowmeters    for real-time monitoring,2002.0,CIRCUIT,N/A,N/A,N/A
+Classifying BCI signals from novice users with extreme learning machine,2017.0,ICA,N/A,N/A,N/A
+BRAIN-COMPUTER INTERFACE DEVICES: RISKS AND CANADIAN REGULATIONS,2008.0,ICA,N/A,N/A,N/A
+A Study and Performance Analysis of Three Paradigms of Wavelet    Coefficients Combinations in Three-class motor imagery based BCI,2014.0,ICA | CLASSIFIER | MOTOR IMAGERY,N/A,N/A,N/A
+Motor Imagery Brain-Computer Interface for the Control of a    Shoulder-Elbow Rehabilitation Equipment,2017.0,ICA,N/A,Stroke Rehabilitation,N/A
+Near infrared spectroscopy based brain-computer interface,2005.0,ICA,N/A,N/A,N/A
+First investigations of an fNIR-based brain-computer interface,2005.0,ICA,N/A,N/A,N/A
+METRIC LEARNING FOR EVENT-RELATED POTENTIAL COMPONENT CLASSIFICATION IN    EEG SIGNALS,2014.0,P300 | ICA,N/A,BCI Speller,N/A
+Software development of multielement transient signal acquisition and    processing with multi-channel ICP-AES,2000.0,N/A,N/A,N/A,N/A
+Frequency recognition based on canonical correlation analysis for    SSVEP-based BCIs,2006.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+Embedded EEG signal acquisition systems,2014.0,ICA,N/A,N/A,N/A
+Brain Computer Interface Approach using Sensor Covariance Matrix with    Forced Whitening,2017.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Experimental Study From Chinese-Japanese And Japanese-Chinese Bilingual    Behavioral Data To Brain Computer Interface,2016.0,ICA,N/A,N/A,N/A
+Classifications of Motor Imagery Tasks Using K-Nearest Neighbors,2014.0,ELECTRODE | ICA | CLASSIFIER | MOTOR IMAGERY,N/A,N/A,N/A
+P300-based Brain-Computer Interface Memory Game to Improve Motivation    and Performance,2012.0,P300 | CLASSIFIER,N/A,N/A,N/A
+Frequency recognition based on canonical correlation analysis for    SSVEP-based BCIs,2007.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+Auditory feedback for Brain Computer Interface management - An EEG data    sonification approach,2006.0,ICA,N/A,N/A,N/A
+Protection of BCI system via reversible watermarking of EEG signal,2020.0,ICA,N/A,N/A,N/A
+Physiological Signal Detection Instrument Based on FPGA,2014.0,SENSOR | ICA,N/A,N/A,N/A
+Non-Invasive Brain-Computer Interface Based on Evoked Potentials for    Controlling a Robotic Arm,2011.0,P300 | ELECTRODE | ICA,N/A,Robot Navigation/Control,N/A
+Application of Multiscale Amplitude Modulation Features and Fuzzy    C-Means to Brain-Computer Interface,2012.0,CLASSIFIER | ICA,N/A,N/A,N/A
+Comprehensive review on brain-controlled mobile robots and robotic arms    based on electroencephalography signals,2020.0,MACHINE LEARNING | ICA,N/A,Robot Navigation/Control,N/A
+Monopolar and Bipolar Electrode Settings for SSVEP-Based Brain-Computer    Interface,2015.0,INDEPENDENT COMPONENT ANALYSIS | ELECTRODE | VEP | SSVEP,N/A,N/A,N/A
+A brain-computer interface-based meal-assist robot control system,2021.0,N/A,N/A,Robot Navigation/Control,N/A
+Classification of EEG signals for wrist and grip movements using echo    state network.,2017.0,SENSOR | ICA,N/A,Stroke Rehabilitation,N/A
+Appling of Neural Networks to Classification of Brain-Computer Interface    Data,2016.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Decoding EEG rhythms offline and online during motor imagery for    standing and sitting based on a brain-computer interface,2022.0,DECODING | ICA | ELECTRODE | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+Prototype Hardware Design for Brain Computer Interface Applications,2009.0,ELECTRODE | ICA,N/A,N/A,N/A
+HappyFeat-An interactive and efficient BCI framework for clinical    applications,2024.0,ICA,N/A,N/A,N/A
+The Effect That an Auditory Distraction with Differing Levels of    Intensity Have on a Visual P300 Speller While Utilizing Low Fidelity    Equipment: Alongside the Development of a Taxonomy,2019.0,P300 | ICA,N/A,BCI Speller,N/A
+A Hybrid BCI System Combining P300 and SSVEP and Its Application to    Wheelchair Control,2013.0,P300 | ICA | VEP | SSVEP,N/A,N/A,N/A
+Analysis and application of functional connectivity in synchronic hybrid    mental tasks for brain-computer interface,2021.0,ICA,N/A,N/A,N/A
+Score Normalization of Ensemble SVMs for Brain-Computer Interface P300    speller,2017.0,P300 | CLASSIFIER | ICA,N/A,BCI Speller,N/A
+Brain Computer Interface for smart living environment,2018.0,STEADY STATE | ICA | VEP | SSVEP,N/A,Robot Navigation/Control,N/A
+Designing Guiding Systems for Brain-Computer Interfaces,2017.0,MACHINE LEARNING,N/A,N/A,N/A
+Identification of Risks Associated with Invasive Brain-Computer    Interfaces and Reasons for its Ethical Review,2023.0,ICA,N/A,N/A,N/A
+Limbs Movement and Motor Imagery: an EEG Study,2019.0,ICA | SENSOR | MOTOR IMAGERY,N/A,N/A,N/A
+Estimation of optimal location of EEG reference electrode for motor    imagery based BCI using fMRI,2006.0,ELECTRODE,N/A,N/A,N/A
+Spectrum Research to Voice Signal with Virtual Instrument,2010.0,N/A,N/A,N/A,N/A
+EEG Patterns for Driving Wireless Control Robot,2011.0,ICA,N/A,Robot Navigation/Control,N/A
+Analysis on synchronous time-frequency components of human    movement-related cortical potential using wavelet transform,2004.0,ELECTRODE | ICA,N/A,N/A,N/A
+A Chaotic Detection Method for Steady-State Visual Evoked Potentials,2009.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+Detecting Semantic Priming at the Single-Trial Level,2013.0,MACHINE LEARNING | CLASSIFIER | ICA,N/A,N/A,N/A
+Comparison on Performance of Adaptive Algorithms for Eye Blinks Removal    in Electroencephalogram,2018.0,INDEPENDENT COMPONENT ANALYSIS | ICA,N/A,N/A,N/A
+Using the Partial Directed Coherence to Understand Brain Functional    Connectivity During Movement Imagery Tasks,2018.0,MOTOR IMAGERY,N/A,Robot Navigation/Control,N/A
+Hand motor imagination identification based on approximate entropy and    support vector machine,2006.0,NONLINEAR | ICA | MOTOR IMAGERY,N/A,N/A,N/A
+P300 oddball task and classification based on Support Vector Machine for    BCI system,2013.0,P300 | ICA,N/A,N/A,N/A
+Improving Classification Accuracy in Cortical Surface Recordings using    ICA-based Features,2018.0,INDEPENDENT COMPONENT ANALYSIS | CLASSIFIER | ICA,N/A,N/A,N/A
+Classification of EEG for Upper Limb Motor Imagery: An Approach for    Rehabilitation,2018.0,ICA | ELECTRODE | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+BRAIN COMPUTER INTERFACES FOR MOBILE APPS: STATE-OF-THE-ART & FUTURE    DIRECTIONS,2015.0,ICA,N/A,N/A,N/A
+Feature Extraction and Classification of EEG for Imagery Movement Based    on Mu/Beta Rhythms,2010.0,ICA,N/A,N/A,N/A
+Challenge Accepted? Individual Performance Gains for Motor Imagery    Practice with Humanoid Robotic EEG Neurofeedback,2020.0,ICA | SENSOR | MOTOR IMAGERY,N/A,Robot Navigation/Control,N/A
+Classification of EEG Signals Using Support Vector Machine to    Distinguish Different Hand Motor Movements,2017.0,CLASSIFIER | ICA,N/A,N/A,N/A
+Semi-autonomous Car Control Using Brain Computer Interfaces,2013.0,SENSOR,N/A,N/A,N/A
+An online BCI game based on the decoding of users' attention to color    stimulus,2013.0,ICA,N/A,N/A,N/A
+Wavelets and Ensemble of FLDs for P300 Classification,2009.0,P300 | ICA,N/A,N/A,N/A
+Classification of mental task EEG signals using wavelet packet entropy    and SVM,2007.0,ICA,N/A,N/A,N/A
+EEG Signal Classification Using AAR and Resilient Propagation with    Emotiv EPOC Device,2018.0,ICA,N/A,N/A,N/A
+Application of Covariate Shift Adaptation Techniques in Brain-Computer    Interfaces,2010.0,ELECTRODE | ICA,N/A,N/A,N/A
+Emotion Recognition Algorithm Based on Convolution Neural Network,2017.0,ICA,N/A,N/A,N/A
+"Deep brain stimulation, lesioning, focused ultrasound: update on utility",2023.0,ICA,N/A,N/A,N/A
+Sample size determination for BCI studies: how many subjects and trials?,2016.0,ICA,N/A,N/A,N/A
+Poor performance in SSVEP BCIs: Are worse subjects just slower?,2012.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+Adaboost with SVM-Based Classifier for the Classification of Brain Motor    Imagery Tasks,2011.0,ICA | CLASSIFIER | MOTOR IMAGERY,N/A,N/A,N/A
+Application of Wavelet-based Maximum Entropy on the Mean in Channel    Optimization for BCI,2016.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Fixed Low-Rank EEG Spatial Filter Estimation for Emotion Recognition    Induced by Movies,2016.0,ICA,N/A,N/A,N/A
+Development of An Adaptive Cognitive Training Method Using Near-InfraRed    Spectroscopy,2012.0,NEAR-INFRARED SPECTROSCOPY | ICA,N/A,N/A,N/A
+Subject-based feature extraction using fuzzy wavelet packet in    brain-computer interfaces,2007.0,MOTOR IMAGERY,N/A,N/A,N/A
+Extremely Reduced Data Sets Indicate Optimal Stimulation Parameters for    Classification in Brain-Computer Interfaces,2019.0,DECODING | ICA,N/A,BCI Speller,N/A
+Common Spatial Patterns for Steady-State Somatosensory Evoked Potentials,2013.0,SENSOR | MOTOR IMAGERY,N/A,N/A,N/A
+Cross-Subject Classification of Speaking Modes Using fNIRS,2012.0,FNIRS | ICA,N/A,N/A,N/A
+Advanced spike sorting approaches in implantable VLSI wireless brain    computer interfaces: a survey,2024.0,ICA,N/A,N/A,N/A
+"Data Recording, Amplification and Acquisition System for Microelectrode    Array",2014.0,ELECTRODE | ICA,N/A,N/A,N/A
+Approximation-based Common Principal Component for Feature Extraction in    Multi-class Brain-Computer Interfaces,2013.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+EEG Artifact Signals Tracking and Filtering in Real Time for Command    Control Application,2011.0,ICA,N/A,N/A,N/A
+Multiclass Voluntary Facial Expression Classification based on Filter    Bank Common Spatial Pattern,2008.0,MACHINE LEARNING | ICA | CLASSIFIER | MOTOR IMAGERY,N/A,N/A,N/A
+EEG signal co-channel interference suppression based on image    dimensionality reduction and permutation entropy,2017.0,ELECTRODE | SIGNAL ANALYSIS | ICA,N/A,N/A,N/A
+Motor Imagery EEG Classification Based on CEEMDAN-CWT Characterization,2023.0,ICA | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+"EEGLAB, SIFT, NFT, BCILAB, and ERICA: New Tools for Advanced EEG    Processing",2011.0,ICA,N/A,N/A,N/A
+A method of unsupervised machine learning based on self-organizing map    for BCI,2016.0,MACHINE LEARNING | ICA,N/A,N/A,N/A
+WHEELCHAIR ACTIVE REHABILITATION METHOD FOR LOWER LIMB OF STROKE    PATIENTS,2022.0,ICA,N/A,Stroke Rehabilitation,N/A
+Time Domain EEG Analysis for Evaluating the Effects of Driver's Mental    Work Load during Simulated Driving,2017.0,ICA,N/A,N/A,N/A
+Improved Recognition of Error Related Potentials through the use of    Brain Connectivity Features,2012.0,ICA,N/A,N/A,N/A
+Improving the Performance of SSVEP BCI with Short Response Time by    Temporal Alignments Enhanced CCA,2019.0,STEADY STATE | ICA | VEP | SSVEP,N/A,N/A,N/A
+Performance Analysis of Multi-frequency SSVEP-BCI Using Clear and    Frosted Colour LED Stimuli,2013.0,STEADY STATE | ICA | VEP | SSVEP,N/A,N/A,N/A
+Wavelet-based envelope features with automatic EOG artifact removal:    Application to single-trial EEG data,2012.0,INDEPENDENT COMPONENT ANALYSIS | CLASSIFIER | ICA,N/A,N/A,N/A
+Local discriminative spatial patterns for movement-related    potentials-based EEG classification,2011.0,ICA,N/A,N/A,N/A
+Correlation-Based Regularized Common Spatial Patterns for Classification    of Motor Imagery EEG Signals,2019.0,ICA,N/A,N/A,N/A
+Classification of Motor Imagery-Based Hand Grasping with Hybrid Features,2016.0,ICA | ELECTRODE | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+Classification of Auditory Steady-State Responses to Speech Data,2013.0,ICA,N/A,N/A,N/A
+Hierarchical Bayesian Modeling of Inter-Trial Variability and    Variational Bayesian Learning of Common Spatial Patterns from    Multichannel EEG,2010.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Feature Space Reduction for Single Trial EEG Classification based on    Wavelet Decomposition,2019.0,ICA,N/A,N/A,N/A
+Ensemble Convoluted Feature Extraction for Affective Auditory P300    Brain-Computer Interfaces,2018.0,P300 | ICA,N/A,N/A,N/A
+Speeding Up SVM Training in Brain-Computer Interfaces,2017.0,NONLINEAR | ICA | CLASSIFIER | MOTOR IMAGERY,N/A,N/A,N/A
+Exploring the impact of stimulus transparency in ERP-BCI under RSVP,2024.0,ICA,N/A,N/A,N/A
+DRONE MOVEMENT CONTROL BY ELECTROENCEPHALOGRAPHY SIGNALS BASED ON BCI    SYSTEM,2022.0,ICA,N/A,N/A,N/A
+Design and Implementation of Brain Computer Interface Based on Wireless    EEG Measurements: A Pilot Study,2015.0,SENSOR | ICA,N/A,Stroke Rehabilitation,N/A
+Real Time Eye Blink Extraction Circuit Design from EEG Signal for ALS    Patients,2018.0,CIRCUIT | ICA,N/A,N/A,N/A
+Motor imagery based brain-computer interface: improving the EEG    classification using Delta rhythm and LightGBM algorithm,2022.0,ELECTRODE | ICA | CLASSIFIER | MOTOR IMAGERY,N/A,N/A,N/A
+Augmented Wire-Embedded Silicon-Based Dry-Contact Sensors for    Electroencephalography Signal Measurements,2020.0,ELECTRODE | SENSOR | ICA,N/A,N/A,N/A
+Adaptive Bands on EEG Signals Extracted with Empirical Mode    Decomposition,2013.0,NONLINEAR | ICA,N/A,N/A,N/A
+How Does the Degree of Valence Influence Affective Auditory P300-Based    BCIs?,2019.0,P300 | ICA,N/A,N/A,N/A
+Hybrid fNIRS- EEG based classification of auditory and visual perception    processes,2014.0,CLASSIFIER | FNIRS | ICA,N/A,Robot Navigation/Control,N/A
+Optical brain imaging and its application to neurofeedback,2021.0,NEAR-INFRARED SPECTROSCOPY | MACHINE LEARNING | FNIRS | ICA,N/A,N/A,N/A
+A Step Closer to Becoming Symbiotic with AI through EEG: A Review of    Recent BCI Technology,2020.0,MACHINE LEARNING | ELECTRODE | ICA,N/A,Stroke Rehabilitation,N/A
+An independent brain-computer interface using covert non-spatial visual    selective attention,2010.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+A novel approach for extracting feature from EEG signal for Mental Task    Classification,2015.0,CLASSIFIER | ICA,N/A,N/A,N/A
+Automatic and Adaptive Classification of Electroencephalographic Signals    for Brain Computer Interfaces,2012.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Multivariate weighted recurrence network analysis of EEG signals from    ERP-based smart home system,2018.0,ICA,N/A,N/A,N/A
+Self-regulation of local brain activity using real-time functional    magnetic resonance imaging (fMRI),2004.0,ICA,N/A,N/A,N/A
+Signal processing algorithms implementation with FPGAs,2005.0,ICA,N/A,N/A,N/A
+BCI sports: exploring the potential of BCI-leveraged sport participation    for children with quadriplegic cerebral palsy,2026.0,ICA,N/A,N/A,N/A
+An Implicit Brain Computer Interface Supported by Gaze Monitoring for    Virtual Therapy,2019.0,ICA | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+Feature learning from incomplete EEG with denoising autoencoder,2015.0,DECODING | ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Classification methods for ongoing EEG and MEG signals,2007.0,CLASSIFIER | ICA,N/A,N/A,N/A
+A brain computer interface based on FFT and multilayer neural network -    Feature extraction and generalization,2007.0,NONLINEAR | ICA,N/A,N/A,N/A
+Motor imagery performance evaluation using hybrid EEG-NIRS for BCI,2015.0,NEAR-INFRARED SPECTROSCOPY | ICA | ELECTRODE | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+Learning to control brain rhythms: Making a brain-computer interface    possible,2003.0,SENSOR | ICA,N/A,N/A,N/A
+Spatial Decoding for Gaze Independent Brain-Computer Interface Based on    Covert Visual Attention Shift Using Electroencephalography,2024.0,MACHINE LEARNING | DECODING | ICA,N/A,N/A,N/A
+Classification of motor imaginary tasks using adaptive recursive    bandpass filter - Effective classification for motor imaginary BCI,2008.0,ELECTRODE | ICA,N/A,N/A,N/A
+Motor Imagery Intention Recognition Based on Common Spatial Pattern for    Manipulator Grasping,2022.0,DECODING | CLASSIFIER | ICA,N/A,Stroke Rehabilitation,N/A
+Navigation In a Virtual Environment using Multi-class Motor Imagery    Brain-Computer Interface,2013.0,ICA | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+Towards passive brain-computer interfaces: applying brain-computer    interface technology to human-machine systems in general,2011.0,DECODING | ICA,N/A,N/A,N/A
+Non-Invasive Brain-Computer Interfaces: State of the Art and Trends,2025.0,ICA,N/A,Robot Navigation/Control,N/A
+Novel Synchronous Brain Computer Interface Based on 2-D EEG Local Binary    Patterning,2020.0,MACHINE LEARNING | ELECTRODE | SENSOR | ICA,N/A,N/A,N/A
+Cortically coupled computer vision for rapid image search,2006.0,SENSOR | CLASSIFIER | ICA,N/A,N/A,N/A
+Creating a nonparametric brain-computer interface with neural    time-series prediction preprocessing,2006.0,NONLINEAR | ICA | MOTOR IMAGERY,N/A,N/A,N/A
+A novel RSVP-based system using EEG and eye-movement for classification    and localization,2025.0,SYSTEM DESIGN | ICA,N/A,N/A,N/A
+Effects of performing two visual tasks on single-trial detection of    event-related potentials,2012.0,ICA,N/A,N/A,N/A
+A General Aggregate Model for Improving Multi-Class Brain-Computer    Interface Systems' Performance,2013.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+Robust EEG Channel Selection across Sessions in Brain-Computer Interface    Involving Stroke Patients,2012.0,ICA | MOTOR IMAGERY,N/A,Stroke Rehabilitation,N/A
+A qualitative study adopting a user-centered approach to design and    validate a brain computer interface for cognitive rehabilitation for    people with brain injury,2018.0,ICA,N/A,Stroke Rehabilitation,N/A
+Real-time EEG-based brain-computer interface to a virtual avatar    enhances cortical involvement in human treadmill walking,2017.0,DECODING | ICA,N/A,Stroke Rehabilitation,N/A
+Extracting and discriminating selective brain signals in non-invasive    manner and using them for controlling a device: a cost-efficient    approach to Brain Computer Interface (BCI),2016.0,CIRCUIT | ICA,N/A,N/A,N/A
+Measuring and monitoring emotional changes in children who stutter,2018.0,ICA,N/A,N/A,N/A
+Design of RF Power Delivery System for Wireless BCI Devices.,2013.0,SENSOR,N/A,N/A,N/A
+Phase-Locking Factor in a Motor Imagery Brain-Computer Interface,2012.0,ICA | CLASSIFIER | MOTOR IMAGERY,N/A,Robot Navigation/Control,N/A
+Adaptive Sequence-Based Stimulus Selection in an ERP-Based    Brain-Computer Interface by Thompson Sampling in a Multi-Armed Bandit    Problem,2021.0,P300 | CLASSIFIER | ICA,N/A,BCI Speller,N/A
+P300 based character recognition using sparse autoencoder with ensemble    of SVMs,2019.0,P300 | CLASSIFIER | ICA,N/A,BCI Speller,N/A
+Using a Noninvasive Decoding Method to Classify Rhythmic Movement    Imaginations of the Arm in Two Planes,2015.0,DECODING | CLASSIFIER | ICA,N/A,Robot Navigation/Control,N/A
+Filter bank common spatial pattern algorithm on BCI competition IV    Datasets 2a and 2b,2012.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+A SSVEP-Based Brain–Computer Interface With Low-Pixel Density of Stimuli,2023.0,ICA | VEP | SSVEP,N/A,N/A,N/A
+Psychological assessments of a senile patient with tetraplegia who    received brain-computer interface implantation: a case report,2022.0,ICA,N/A,N/A,N/A
+Eyes-Closed Brain Computer Interface Using Modulation of Steady-State    Visually Evoked Potential and Auditory Steady-State Response,2017.0,ELECTRODE | CLASSIFIER | ICA,N/A,N/A,N/A
+"被撤回的出版物: A 1D CNN for high accuracy classification and transfer learning    in motor imagery EEG-based brain-computer interface (Retracted article.    See vol. 23, 2026)",2021.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+A three-dimensional spatio-temporal EEG pattern analyzing system,2003.0,ICA,N/A,N/A,N/A
+SSVEP BCI and Eye Tracking Use by Individuals With Late-Stage ALS and    Visual Impairments,2020.0,STEADY STATE | ICA | VEP | SSVEP,N/A,BCI Speller,N/A
+Training protocol evaluation of a brain-computer interface:: Mental    tasks proposal,2008.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+A digital signal processing teaching methodology using concept-mapping    techniques,2005.0,,N/A,N/A,N/A
+Filter Bank Regularized Common Spatial Pattern Ensemble for Small Sample    Motor Imagery Classification,2018.0,ICA | MOTOR IMAGERY,N/A,N/A,N/A
+A Novel Hybrid Brain-Computer Interface Combining Motor Imagery and    Intermodulation Steady-State Visual Evoked Potential,2022.0,MOTOR IMAGERY | ICA | VEP | SSVEP,N/A,Stroke Rehabilitation,N/A
+DrAx: An Automatic Approach to Designing More Precise and    Energy-Efficient Approximate Adders,2018.0,CIRCUIT | SYSTEM DESIGN | MACHINE LEARNING | ICA,N/A,N/A,N/A
+Application of digital signal processing tools for the detection of    voltage sag/swell (Publication with Expression of Concern),2018.0,ICA,N/A,N/A,N/A
+Advanced digital signal processing techniques based on Stokes space    analysis for high-capacity coherent optical systems,2017.0,SIGNAL ANALYSIS | ICA,N/A,N/A,N/A
+Macromedia Flash-Based Animations for Teaching of the Digital Signal    processing principles,2011.0,ICA,N/A,N/A,N/A
+Development of FPGA-based digital signal processing system for radiation    spectroscopy,2013.0,ICA,N/A,N/A,N/A
+Virtex-7 FPGA-Based High-Speed Signal Processing Hardware Platform    Design,nan,ICA,N/A,N/A,N/A
