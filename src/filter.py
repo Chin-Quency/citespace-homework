@@ -42,15 +42,32 @@ def screen_logic(item):
 
     return "Include", "Pass"
 
-def run_screening(input_path, output_csv):
-    if not os.path.exists(input_path):
-        print(f"错误：找不到输入文件 {input_path}")
-        return
+def run_screening(input_folder, output_csv):
+    # if not os.path.exists(input_path):
+    #     print(f"错误：找不到输入文件 {input_path}")
+    #     return
+    #
+    # with open(input_path, 'r', encoding='utf-8') as f:
+    #     content = f.read()
+    #
+    # records = content.split('\nER')
+    os.makedirs(os.path.dirname(output_csv), exist_ok=True)
 
-    with open(input_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+    all_records = []
 
-    records = content.split('\nER')
+    # 遍历文件夹里所有 .txt 文件
+    for filename in os.listdir(input_folder):
+        if filename.endswith(".txt"):
+            file_path = os.path.join(input_folder, filename)
+            print(f"正在读取：{filename}")
+
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            records = content.split('\nER')
+            for r in records:
+                if r.strip() and "FN Clarivate" not in r:
+                    all_records.append(r)
     results = []
     
     # PRISMA 计数器
@@ -62,7 +79,7 @@ def run_screening(input_path, output_csv):
         "Included": 0
     }
 
-    for record in records:
+    for record in all_records:
         if not record.strip() or "FN Clarivate" in record: continue
         
         item = {
@@ -108,4 +125,4 @@ def run_screening(input_path, output_csv):
     print("="*30)
 
 # 执行
-run_screening("../data/spacetext.txt", "../outputs/screening_results.csv")
+run_screening("../data", "../outputs/screening_results.csv")
