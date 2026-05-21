@@ -1,89 +1,82 @@
-根据你提供的关键词，我为你更新了 **`screening_rules.md`**。
+可以看出，您当前实际处理的底层数据是 **Web of Science (WoS) 导出的文献纯文本数据**，而不是上一版文档中预设的“植入式设备硬件采集的脑电波形信号”。
 
-这份文档将逻辑进行了结构化，特别强调了你对“电路/信号处理”的偏好以及对“深度学习/侵入式”研究的排除。
-
----
-
-# 文献筛选规则说明 (screening_rules.md)
-
-**版本：** v1.1
-**研究重点：** 基于脑电信号 (EEG) 的电路级与传统信号处理研究
-**筛选逻辑更新日期：** 2026-04-07
+为了让规范文档与您实际运行的 Python 脚本完美契合，我为您重新编写了针对 **WoS 文献计量与综述数据** 的清洗规则。这份规则严格对照了您代码中的解析逻辑、去重逻辑和统计逻辑。
 
 ---
 
-## 1. 核心筛选逻辑概览
-本研究倾向于探索 **硬件实现、电路设计及经典信号处理算法** 在脑电交互中的应用，主动排除纯算法驱动的深度学习黑盒模型。
+# 文献计量数据清洗与解析规范 (clean_rules.md)
 
-### 筛选流程图参考
+**版本：** v3.0 (代码适配版)
+**适用阶段：** 原始文献数据导入、字段解析、基础去重与质量评估
+**数据源：** Web of Science (WoS) 导出的纯文本文件 (`.txt`)
 
+## 一、 总原则 (General Principles)
 
----
-
-## 2. 纳入标准 (Inclusion Criteria) - `Include`
-文献必须满足以下 **任一** 核心领域，且不触发排除条件：
-
-*   **硬件与电路 (Circuit)**：涉及集成电路 (IC)、FPGA 实现、模拟前端 (AFE) 或低功耗芯片设计。
-*   **信号处理 (Signal Processing)**：包含滤波、特征提取 (PCA/LDA)、时频分析等确定性处理方法。
-*   **信息理论 (Information)**：涉及脑电信号的特征信息量分析、编码或传输协议。
-*   **系统应用**：非侵入式脑机接口 (BCI) 系统集成。
+1. **无损读取**：所有原始 `.txt` 导出文件统一存放在 `data/` 目录下，清洗脚本只能对其进行“只读”操作，严禁直接修改或覆盖原文件。
+2. **自动化解析**：依托 WoS 固定的双字母标签（如 `TI`, `AB`, `DI`）进行结构化字典映射，规避人工复制粘贴导致的错行漏行问题。
+3. **数据溯源**：清洗过程需输出各字段的缺失率与重复情况统计表，为后续 PRISMA 流程图的“去重排除”环节提供量化数据支撑。
 
 ---
 
-## 3. 排除标准与原因编码 (Exclusion Codes) - `Exclude`
+## 二、 文本解析与提取规则 (Parsing Rules)
 
-一旦触发以下任一标准，文献将被排除并标记对应编码：
+基于 WoS 纯文本数据的固有格式，数据提取需严格遵循以下机制：
 
-| 编码 | 排除原因 | 匹配关键词 / 判定标准 |
-| :--- | :--- | :--- |
-| **E1** | **非本主题 (Irrelevant)** | 摘要中未出现 `circuit`, `eeg`, `bci`, `signal processing` 等核心词。 |
-| **E2** | **侵入式研究 (Invasive)** | 包含 `implantable` (可植入), `invasive` (侵入式) 或 `intracranial` (颅内)。 |
-| **E3** | **非人类实验 (Non-human)** | 包含 `animal`, `rat`, `monkey` 等非人类受试者研究。 |
-| **E4** | **深度学习干扰 (Deep Learning)** | 包含 `deep learning`, `cnn`, `rnn`, `transformer`。*注：本研究关注底层处理与电路。* |
-| **E5** | **时间不符 (Outdated)** | 晚于项目规定年限或数据格式不完整。 |
+### 2.1 记录分割与屏蔽
 
----
+* **文献定界符**：以 `\nER\n` (End of Record) 作为单篇文献的物理分割符。
+* **文件头过滤**：自动忽略包含 `FN Clarivate` 的系统说明性头部文本及空记录，防止解析报错。
 
-## 4. 自动化脚本配置 (Python Snippet)
-脚本中的 `screen_logic` 函数已按照上述规则更新：
+### 2.2 字段映射与续行合并
 
-```python
-def screen_logic(item):
-    include_keywords = [
-        'low power', 'energy efficient', 'data compression', 
-        'signal acquisition', 'on-chip', 'asic', 'fpga',
-        'eeg', 'brain-computer interface', 'bci',
-        'integrated circuit', 'analog frontend', 'afe'
-    ]
-    
-    
-    exclude_keywords = [
-        'animal', 'rat', 'monkey', 'canine',
-        'deep learning', 'convolutional neural network', 'transformer model'
-    ]
-    
-    title_abs = (item['TI'] + " " + item['AB']).lower()
-    
-    # E1: 主题不相关
-    if not any(kw in title_abs for kw in include_keywords):
-        return "Exclude", "E1"
-    text = (item['TI'] + " " + item['AB']).lower()
-    # E4: 时间不符 (示例：只要 2010 年以后的)
-    # 逻辑判断
-    if not any(kw in text for kw in include_keywords):
-        return "Exclude", "E1 - Topic Irrelevant"
-    
-    if any(kw in text for kw in exclude_keywords):
-        if 'deep learning' in text or 'neural network' in text:
-            return "Exclude", "E4 - Pure Algorithm/DL"
-        return "Exclude", "E3 - Non-human study"
-
-    return "Include", "Pass"
+* **键值对识别**：读取每行前两个字符作为核心字段名（如 `TI` = 标题，`AU` = 作者）。
+* **多行文本拼接 (续行机制)**：如果读取到的新行以**空格开头**，则判定为上一字段内容的延续（常见于超长的摘要 `AB` 或多作者地址 `C1`），系统需自动将其与上一字段拼接，中间补充空格，确保文本完整性。
 
 ---
 
-## 5. 预期产出清单
-1.  **筛选报告** (`screening.csv`)：包含每篇文献的 `Reason_Code`。
-2.  **证据链** (`evidence_chain.md`)：重点提取电路架构和信号处理流。
-3.  **PRISMA 数据**：用于统计各阶段被 E1-E4 拦截的文献数量。
+## 三、 核心清洗与去重规则 (Cleaning & Deduplication)
 
+在完成结构化解析后，转化为 DataFrame 格式的数据需经过以下强制清洗流程：
+
+### 3.1 强制去重基准 (Deduplication)
+
+* **主键去重**：以 `DI` (Digital Object Identifier, 数字对象唯一标识符) 作为文献绝对唯一的主键。
+* **处理动作**：执行 `drop_duplicates(subset=['DI'])`。若多篇文献 DOI 相同（例如分批次导出时产生了交集），仅保留首次读取到的记录，其余直接丢弃。
+
+### 3.2 强制有效性校验 (Mandatory Fields)
+
+* **核心字段校验**：以 `TI` (文章标题) 作为文献有效性的最低底线。
+* **处理动作**：执行 `dropna(subset=['TI'])`。任何缺失标题的记录（如 WoS 早期年份的残缺数据或纯勘误声明）均视为无效条目，直接删除。
+
+---
+
+## 四、 质量评估与统计规则 (Quality Assessment)
+
+为了掌握检索数据的整体质量，为后续 CiteSpace 分析或人工复筛提供依据，脚本需自动生成并输出统计报告：
+
+### 4.1 字段级缺失率 (Missing Rate)
+
+* **计算逻辑**：针对解析出的每一个独立字段，计算其 `(空值数量 / 总记录数)`。
+* **应用场景**：若核心字段（如 `AB` 摘要）缺失率过高，需警惕后续依靠摘要进行关键字匹配的初筛脚本会产生漏判。
+
+### 4.2 数据存留统计 (Retention Stats)
+
+每次运行清洗脚本后，需向控制台与文件同时输出：
+
+1. **最终有效规模**：经过 DOI 去重和无标题过滤后的有效文献总数。
+2. **排重总数**：因重复被剔除的冗余文献量。
+
+### 4.3 统计输出产物
+
+* **数据表**：生成包含所有字段质量评估的 `field_stats.csv`，存入 `outputs/` 目录。
+* **可视化**：生成柱状图 (Bar Chart) 直观展示各字段的缺失率，便于在论文方法学章节中论述数据源的可靠性。
+
+---
+
+## 五、 目录流转规范 (Directory Workflow)
+
+* 📂 `../data/`：**原始输入层**。存放从 WoS 批量导出的所有 `.txt` 纯文本原始文件。
+* 📂 `../outputs/`：**分析输出层**。
+* 📄 `field_stats.csv`：字段质量统计报告。
+* 📄 `screening_results.csv`：（承接后续步骤）包含 E1-E4 筛选标识的复筛表。
+* 📄 `download_included_for_citespace.txt`：（承接后续步骤）专供 CiteSpace 读取的高质量文献集合。
