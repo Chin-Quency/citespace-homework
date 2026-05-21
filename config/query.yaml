@@ -1,3 +1,4 @@
+v1.0:
 query:
 object:
 - "bci interface"
@@ -7,3 +8,45 @@ method:
 - "signal processing"
 - "digital signal processing"
 time_window: [2020, 2025]
+
+v2.0:
+query:
+  object:
+    # 对应检索式中的植入式系统与神经信号模态
+    - "implant*"
+    - "invasive"
+    - "neural interfac*"
+    - "neural record*"
+    - "ECoG"
+    - "LFP"
+    - "EEG"
+  method:
+    # 对应检索式中的片上数据处理与压缩技术
+    - "compress*"
+    - "data reduc*"
+    - "compressive sensing"
+    - "feature extract*"
+    - "on-chip process*"
+    - "edge comput*"
+  context:
+    # 对应检索式中的人类/临床研究限制条件
+    - "human*"
+    - "patient*"
+    - "clinical"
+    - "subject*"
+  exclusion:
+    # 对应检索式中 NOT 排除的动物实验与非相关模型
+    - "rat"
+    - "rats"
+    - "mouse"
+    - "mice"
+    - "rodent*"
+    - "macaque*"
+    - "monkey*"
+    - "primate*"
+    - "animal model*"
+    - "feline"
+    - "canine"
+    - "pig"
+    - "porcine"
+  time_window: [2010, 2025]
