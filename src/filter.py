@@ -26,7 +26,7 @@ def screen_logic(item):
     if any(kw in text for kw in dl_keywords):
         return "Exclude", "E4 - Pure Algorithm/DL"
 
-    # ---- 修复核心：E3 逻辑全面升级 ----
+    # ---- 修复核心 1：E3 动物实验排除 ----
     animal_pattern = re.compile(r'\b(rat|rats|mouse|mice|rodent|rodents|macaque|macaques|monkey|monkeys|primate|primates|animal|animals|feline|canine|pig|pigs|porcine)\b')
     has_animal = bool(animal_pattern.search(text))
     
@@ -35,6 +35,12 @@ def screen_logic(item):
 
     if has_animal and (not has_human):
         return "Exclude", "E3 - Pure Animal Study"
+
+    # ---- 修复核心 2：E5 剔除非神经领域的临床/骨科/外科噪音 ----
+    # 针对性屏蔽：骨骼、脊柱、经皮椎体成形术、骨折、固定、牙科、心血管支架等
+    med_noise_pattern = re.compile(r'\b(bone|bones|spine|spinal|vertebroplasty|orthopedic|orthopaedic|fracture|fractures|fixation|lumbar|cervical|dental|stent|stents|arthroplasty|osteoporosis|joint|cardiovascular|myocardial)\b')
+    if bool(med_noise_pattern.search(text)):
+        return "Exclude", "E5 - Non-Neural Medical/Orthopedic Noise"
 
     return "Include", "Pass"
 
@@ -65,10 +71,11 @@ def run_screening(input_folder, output_csv, citespace_output_txt):
         return
 
     results = []
-    citespace_raw_records = [] # 新增：用于存放准备喂给 CiteSpace 的原始文献块
+    citespace_raw_records = [] 
     
+    # 字典新增了 Excluded_E5
     stats = {
-        "Total": 0, "Excluded_E1": 0, "Excluded_E3": 0, "Excluded_E4": 0, "Included": 0
+        "Total": 0, "Excluded_E1": 0, "Excluded_E3": 0, "Excluded_E4": 0, "Excluded_E5": 0, "Included": 0
     }
 
     for record in all_records:
@@ -89,14 +96,14 @@ def run_screening(input_folder, output_csv, citespace_output_txt):
         stats["Total"] += 1
         if decision == "Include": 
             stats["Included"] += 1
-            # 新增：如果判定保留，则将完整的带有 WoS 标签的原文存起来
             citespace_raw_records.append(record)
         else:
             if "E1" in reason: stats["Excluded_E1"] += 1
-            if "E3" in reason: stats["Excluded_E3"] += 1
-            if "E4" in reason: stats["Excluded_E4"] += 1
+            elif "E3" in reason: stats["Excluded_E3"] += 1
+            elif "E4" in reason: stats["Excluded_E4"] += 1
+            elif "E5" in reason: stats["Excluded_E5"] += 1
 
-    # 1. 保存所有结果（包含筛选原因）为 CSV 文件，用于 PRISMA 流程图
+    # 1. 保存所有结果
     if results:
         keys = results[0].keys()
         with open(output_csv, 'w', newline='', encoding='utf-8-sig') as f:
@@ -104,32 +111,30 @@ def run_screening(input_folder, output_csv, citespace_output_txt):
             dict_writer.writeheader()
             dict_writer.writerows(results)
 
-    # 2. [新增核心功能] 生成专门用于 CiteSpace 画图的 TXT 文件
+    # 2. 生成专门用于 CiteSpace 画图的 TXT 文件
     if citespace_raw_records:
         with open(citespace_output_txt, 'w', encoding='utf-8') as f:
-            # 必须添加 WoS 标准文件头，否则 CiteSpace 可能会报错识别不出
             f.write("FN Clarivate Analytics Web of Science\nVR 1.0\n")
             for rec in citespace_raw_records:
-                # 把之前 split 截掉的 ER 尾部补回来，保证格式绝对合法
                 f.write(rec.strip() + "\nER\n")
 
     print(f"\n✅ 修复版筛选完成！")
     print(f"📊 PRISMA 追踪记录已存至 CSV: {output_csv}")
     print(f"🎨 CiteSpace 专用绘图文件已生成: {citespace_output_txt}")
-    print("\n" + "="*40)
+    print("\n" + "="*45)
     print("📊 PRISMA 数据统计 (包含 CiteSpace 导出)")
-    print("="*40)
+    print("="*45)
     print(f"1. 初始检索数量: {stats['Total']}")
     print(f"2. 初筛排除数量: {stats['Total'] - stats['Included']}")
     print(f"   - E1 (主题不符): {stats['Excluded_E1']}")
     print(f"   - E3 (纯动物实验): {stats['Excluded_E3']}")
     print(f"   - E4 (纯算法/DL): {stats['Excluded_E4']}")
+    print(f"   - E5 (医疗/骨科/外科噪音): {stats['Excluded_E5']}  <-- [本次重点拦截]")
     print(f"3. 拟纳入全文复筛 (用于 CiteSpace): {stats['Included']} 篇")
-    print("="*40)
-    print("💡 下一步操作提示: 直接将生成的 txt 文件放入您的 CiteSpace Data 文件夹中即可运行！")
+    print("="*45)
+    print("💡 下一步：请用新生成的 txt 文件重新运行 CiteSpace！")
 
 if __name__ == "__main__":
-    # 我们将生成的供 CiteSpace 使用的 txt 命名为 download_ 开头，符合其软件读取习惯
     run_screening("../data", 
                   "../outputs/screening_results.csv", 
                   "../outputs/download_included_for_citespace.txt")
