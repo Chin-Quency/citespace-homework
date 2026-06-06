@@ -1,49 +1,167 @@
-# 植入式脑电信号数据清洗与字段统一规范 (clean_rules.md)
+# Web of Science 文献数据清洗规则 (Clean Rules)
 
-本文件规范了项目在“全植入式”场景下，针对**硬件采集原始数据**与**片上压缩重构数据**的清洗、对齐与去重标准。
+## 一、数据输入来源
+- Web of Science 导出格式 (纯文本 .txt)
+- 每条记录以 `ER` 结尾分隔
+- 可能包含多个批次的数据文件
 
-## 一、 总原则 (General Principles)
-1. **分类清洗，统一映射**：硬件原始采集数据（如 ASIC 导出的 ECoG）与算法处理结果数据（压缩后数据）格式差异巨大，必须先分别清洗，最后再基于唯一标识符合并。
-2. **核心字段零容忍**：采样率、位宽、信号类型缺失的记录直接标记无效；严禁对缺失参数进行“均值填充”或“默认补全”。
-3. **源文件不可变**：所有清洗操作必须输出至新文件，严禁覆盖 `data/raw/` 目录下的任何原始设备日志或算法输出表。
+## 二、数据字段提取与映射
 
-## 二、 字段标准化映射表 (Field Standardization)
+### 2.1 核心字段提取
+citespace.py 从 WOS 格式中提取以下核心字段：
 
-### 2.1 硬件采集端数据 (Raw Acquisition)
-| 原始可能字段 | 标准化字段名 (统一小写) | 数据规范要求 |
-| :--- | :--- | :--- |
-| DeviceID / 芯片编号 | `device_id` | 保持不变 |
-| SignalType / 模态 | `signal_type` | 统一大写：ECoG, LFP, MUA, SUA |
-| SamplingRate | `sampling_rate` | 统一单位：Hz (纯数字，勿带单位字符) |
-| BitWidth / 精度 | `bit_width` | 统一单位：bit (如 12, 16) |
-| CollectSite | `collect_site` | 统一规范词：颅内 (Intracranial), 皮层 (Cortical) |
-| NoiseLevel | `noise_level` | 统一单位：dB |
+| 字段代码 | 字段名称 | 说明 |
+|----------|----------|------|
+| TI | Title | 文献标题 |
+| AB | Abstract | 摘要 |
+| DE | Keywords | 关键词 |
+| AU | Author | 作者 |
+| PY | Publication Year | 出版年份 |
+| SO | Source | 来源出版物 |
+| DI | DOI | 数字对象标识符 |
 
-### 2.2 算法压缩端数据 (Processed/Compressed)
-| 原始可能字段 | 标准化字段名 (统一小写) | 数据规范要求 |
-| :--- | :--- | :--- |
-| SourceDataID | `source_data_id` | **极重要**：必须与采集端的 data_id 绝对对应 |
-| Algorithm / 算法 | `algorithm` | 统一大写简写：CS, DWT, DPCM, PCA |
-| CompressionRatio | `compression_ratio` | 统一转换为小数浮点数 (如 8.5)，不得保留 "8.5:1" |
-| PowerConsumption | `power_consumption` | 统一换算为微瓦 (uW) 纯数值 |
-| Delay / 延迟 | `delay` | 统一单位：ms |
-| SNR / 恢复信噪比 | `snr` | 统一单位：dB |
+### 2.2 字段解析逻辑
 
-## 三、 有效性校验与去重 (Validation & Deduplication)
+```python
+# 逐行解析 WOS 记录
+for line in lines:
+    if not line:
+        continue
+    if line.startswith(' '):
+        # 续行：追加到上一个字段
+        fields[last_key] += ' ' + line.strip()
+    else:
+        # 新字段：分割键值对
+        if ' ' in line:
+            key, value = line.split(' ', 1)
+            fields[key] = value.strip()
+            last_key = key
+```
 
-### 3.1 质量初筛门限 (Quality Thresholds)
-数据需满足以下最低硬件设计与验证指标，方可进入 `processed` 分析集：
-* **硬件信号**：`noise_level` ≤ 30dB，采样率位于 1kHz - 32kHz 区间。
-* **压缩性能**：`compression_ratio` ≥ 2.0，重构信号 `snr` ≥ 15dB，系统处理 `delay` ≤ 20ms。
+**关键规则**:
+1. 行首带空格的为续行内容，需追加到上一字段末尾
+2. 其他行为新字段定义，使用第一个空格分隔键和值
+3. 值会自动去除首尾空白
 
-### 3.2 严格去重逻辑 (Deduplication Rules)
-1. **全局唯一冲突**：`data_id` 完全一致，强制覆盖/剔除。
-2. **采集端重复**：`device_id` + `collect_time` + `channel` 完全一致，保留 `noise_level` 更低的记录。
-3. **处理端重复**：针对同一 `source_data_id` 运行了相同 `algorithm` 的多次记录，保留 `snr` 最高或 `power_consumption` 最低的记录。
+## 三、数据清洗规则
 
-## 四、 目录结构与版本控制 (Directory Structure)
-所有数据必须严格遵守以下文件流转生命周期：
-* 📂 `data/raw/`：存放原始设备导出日志 (如 `.dat`, `.csv`)。**[只读]**
-* 📂 `data/interim/`：存放完成格式标准化但未合并的中间表。
-* 📂 `data/processed/`：存放最终字段对齐、通过质量门限的综合验证数据集。
-* 📂 `reports/`：存放本规则说明文档 (`clean_rules.md`) 及数据质量统计报告 (`data_quality.md`)。
+### 3.1 去重规则
+
+**去重依据**: DOI (`DI` 字段)
+
+```python
+if 'DI' in df.columns:
+    df = df.drop_duplicates(subset=['DI'])  # 按 DOI 去重
+```
+
+**说明**:
+- 以 DOI 作为唯一标识符
+- 相同 DOI 的记录视为重复，保留第一条，其余删除
+- 仅当 DI 字段存在时才执行去重
+
+### 3.2 缺失值处理
+
+**必填字段**: TI (标题)
+
+```python
+df = df.dropna(subset=['TI'])  # 删除无标题的记录
+```
+
+**规则**:
+- 所有缺少标题 (TI) 的记录直接删除
+- 其他字段 (AB, DE, AU, SO 等) 允许缺失
+
+### 3.3 有效记录过滤
+
+**排除规则**:
+1. 空记录：解析后为空的记录
+2. 元数据记录：包含 `FN Clarivate` 的记录
+
+```python
+for rec in records:
+    rec = rec.strip()
+    if not rec or "FN Clarivate" in rec:
+        continue  # 跳过无效记录
+```
+
+## 四、数据质量统计
+
+### 4.1 统计指标
+
+```python
+def get_data_stats(df: pd.DataFrame):
+    stats = pd.DataFrame({
+        '缺失率': df.isnull().sum() / len(df),
+        '重复数': df.duplicated().sum()
+    })
+    return stats
+```
+
+| 统计项 | 计算方式 | 说明 |
+|--------|----------|------|
+| 缺失率 | `df.isnull().sum() / len(df)` | 各字段缺失记录比例 |
+| 重复数 | `df.duplicated().sum()` | 存在重复的记录总数 |
+
+### 4.2 可视化输出
+
+- 使用 matplotlib 绘制各字段缺失率柱状图
+- 图表标题：`Missing Rate per Field`
+
+## 五、批量数据处理流程
+
+### 5.1 文件夹批量读取
+
+```python
+def load_wos_data_folder(folder_path: str) -> pd.DataFrame:
+    all_records = []
+    
+    # 遍历文件夹所有 .txt 文件
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".txt"):
+            # 读取并解析每条记录
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            records = content.split('\nER\n')
+            for rec in records:
+                rec = rec.strip()
+                if not rec or "FN Clarivate" in rec:
+                    continue
+                all_records.append(rec)
+```
+
+### 5.2 数据转换与清洗
+
+1. 解析所有记录为字典列表
+2. 转换为 pandas DataFrame
+3. 按 DOI 去重
+4. 删除无标题记录
+
+## 六、输出文件
+
+### 6.1 统计数据
+- 文件路径：`../outputs/field_stats.csv`
+- 编码：`utf-8-sig`
+- 内容：各字段缺失率和重复数统计
+
+### 6.2 数据规模输出
+```
+数据规模: <记录总数>
+字段统计：
+<各字段统计详情>
+```
+
+## 七、技术实现细节
+
+### 记录分隔符
+- **主分隔符**: `\nER\n` (换行 + ER + 换行)
+- 解析后需去除每条记录的首尾空白
+
+### 编码要求
+- 输入文件：`utf-8`
+- 输出 CSV: `utf-8-sig` (兼容 Excel)
+
+### 依赖库
+- `pandas`: 数据处理和统计分析
+- `matplotlib`: 数据质量可视化
+- `os`: 文件系统操作

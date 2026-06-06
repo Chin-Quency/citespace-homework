@@ -1,75 +1,119 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+from matplotlib.patches import FancyBboxPatch
+import os
+
 
 def draw_prisma_chart(output_path="../outputs/prisma_flowchart.png"):
-    # 创建画布 (宽 10, 高 8)
-    fig, ax = plt.subplots(figsize=(10, 8))
-    ax.axis('off')  # 关闭坐标轴
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 8)
+    ax.axis('off')
 
-    # 定义文本框的统一样式
-    box_style = dict(boxstyle="round,pad=0.5", facecolor="#F5F5F5", edgecolor="#333333", linewidth=1.5)
-    exclude_box_style = dict(boxstyle="round,pad=0.5", facecolor="#FFF0F0", edgecolor="#D62728", linewidth=1.5)
-    include_box_style = dict(boxstyle="round,pad=0.5", facecolor="#F0FFF0", edgecolor="#2CA02C", linewidth=1.5)
+    # ================= 颜色与样式 =================
+    C_BG = "#F7F9FC"
+    C_IDENT = "#D6EAF8"
+    C_SCREEN = "#D5F5E3"
+    C_EXCLUDE = "#FADBD8"
+    C_INCLUDE = "#ABEBC6"
+    C_BORDER = "#2C3E50"
+    C_ARROW = "#34495E"
+    C_LABEL = "#7F8C8D"
 
-    # ================= 1. 定义节点文本内容 =================
-    text_identification = "Identification:\nRecords identified through\nWeb of Science database\n(n = 16,000)"
-    text_screening = "Screening:\nRecords screened by\nautomated scripts\n(n = 16,000)"
-    text_excluded = "Excluded (n = 4,797):\n- E1 (Topic Irrelevant): 2,294\n- E3 (Pure Animal Study): 14\n- E4 (Pure Algorithm/DL): 2,489"
-    text_included = "Included:\nRecords included for\nCiteSpace / VOSviewer analysis\n(n = 11,203)"
+    fig.patch.set_facecolor('white')
 
-    # ================= 2. 定义节点位置 (X, Y) =================
-    pos_id = (0.35, 0.85)
-    pos_screen = (0.35, 0.55)
-    pos_exclude = (0.80, 0.55)
-    pos_include = (0.35, 0.25)
+    # ================= 辅助函数 =================
+    def draw_box(x, y, w, h, facecolor, text, fontsize=9, bold=False, text_color="#2C3E50"):
+        box = FancyBboxPatch(
+            (x, y), w, h,
+            boxstyle="round,pad=0.15",
+            facecolor=facecolor, edgecolor=C_BORDER,
+            linewidth=1.2, zorder=2
+        )
+        ax.add_patch(box)
+        weight = 'bold' if bold else 'normal'
+        ax.text(x + w / 2, y + h / 2, text,
+                ha='center', va='center', fontsize=fontsize,
+                fontweight=weight, color=text_color, zorder=3,
+                linespacing=1.4)
 
-    # ================= 3. 绘制文本框 =================
-    # Identification Box
-    ax.text(pos_id[0], pos_id[1], text_identification, size=11, ha="center", va="center", bbox=box_style, wrap=True)
-    
-    # Screening Box
-    ax.text(pos_screen[0], pos_screen[1], text_screening, size=11, ha="center", va="center", bbox=box_style, wrap=True)
-    
-    # Excluded Box
-    ax.text(pos_exclude[0], pos_exclude[1], text_excluded, size=11, ha="center", va="center", bbox=exclude_box_style)
-    
-    # Included Box
-    ax.text(pos_include[0], pos_include[1], text_included, size=12, ha="center", va="center", fontweight='bold', bbox=include_box_style)
+    def draw_arrow(x1, y1, x2, y2):
+        ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                    arrowprops=dict(arrowstyle='->', color=C_ARROW,
+                                    lw=1.5, shrinkA=0, shrinkB=0),
+                    zorder=1)
 
-    # ================= 4. 绘制连接箭头 =================
-    arrow_props = dict(facecolor='black', edgecolor='black', width=2, headwidth=8, headlength=10, shrink=0.05)
+    # ================= 节点定义 =================
+    # 中心列 x=1.5, w=4.5; 排除列 x=6.5, w=3
+    cx, cw = 1.5, 4.5
+    ex, ew = 6.5, 3.0
+    bh = 1.2  # 基础框高
+    gap = 0.5  # 框间距
 
-    # Identification -> Screening (向下)
-    ax.annotate('', xy=(pos_screen[0], pos_screen[1] + 0.12), 
-                xytext=(pos_id[0], pos_id[1] - 0.12),
-                arrowprops=arrow_props)
+    # --- Identification ---
+    y_id = 6.2
+    draw_box(cx, y_id, cw, bh, C_IDENT,
+             "Identification\nRecords from Web of Science\n(n = 16,000)",
+             fontsize=9.5, bold=True)
 
-    # Screening -> Included (向下)
-    ax.annotate('', xy=(pos_include[0], pos_include[1] + 0.12), 
-                xytext=(pos_screen[0], pos_screen[1] - 0.12),
-                arrowprops=arrow_props)
+    # --- Screening ---
+    y_sc = y_id - bh - gap
+    draw_box(cx, y_sc, cw, bh, C_SCREEN,
+             "Screening\nAutomated script screening\n(n = 16,000)",
+             fontsize=9.5, bold=True)
 
-    # Screening -> Excluded (向右)
-    ax.annotate('', xy=(pos_exclude[0] - 0.18, pos_exclude[1]), 
-                xytext=(pos_screen[0] + 0.15, pos_screen[1]),
-                arrowprops=arrow_props)
+    # --- Excluded ---
+    y_ex = y_sc
+    draw_box(ex, y_ex, ew, bh + 0.5, C_EXCLUDE,
+             "Excluded (n = 10,310)\n"
+             "E1 Topic irrelevant: 2,294\n"
+             "E3 Pure animal study: 14\n"
+             "E4 Pure DL/algorithm: 2,489\n"
+             "E5 Non-neural medical: 5,513",
+             fontsize=8, text_color="#922B21")
 
-    # ================= 5. 添加区域侧边标签 (可选，增加学术感) =================
-    ax.text(0.05, pos_id[1], "Identification", size=14, fontweight='bold', rotation=90, va='center', color='gray')
-    ax.text(0.05, pos_screen[1], "Screening", size=14, fontweight='bold', rotation=90, va='center', color='gray')
-    ax.text(0.05, pos_include[1], "Included", size=14, fontweight='bold', rotation=90, va='center', color='gray')
+    # --- Included ---
+    y_in = y_sc - bh - gap
+    draw_box(cx, y_in, cw, bh, C_INCLUDE,
+             "Included\nCiteSpace / VOSviewer analysis\n(n = 5,690)",
+             fontsize=9.5, bold=True, text_color="#1E8449")
 
-    # 添加分割虚线
-    ax.plot([0.1, 0.95], [0.72, 0.72], linestyle='--', color='lightgray', zorder=0)
-    ax.plot([0.1, 0.95], [0.40, 0.40], linestyle='--', color='lightgray', zorder=0)
+    # ================= 箭头 =================
+    mid_cx = cx + cw / 2
+    mid_ex = ex + ew / 2
 
-    # ================= 6. 保存与显示 =================
-    plt.tight_layout()
-    import os
+    # Identification -> Screening
+    draw_arrow(mid_cx, y_id, mid_cx, y_sc + bh)
+    # Screening -> Included
+    draw_arrow(mid_cx, y_sc, mid_cx, y_in + bh)
+    # Screening -> Excluded
+    draw_arrow(cx + cw, y_sc + bh / 2, ex, y_ex + (bh + 0.5) / 2)
+
+    # ================= 侧边区域标签 =================
+    label_x = 0.4
+    ax.text(label_x, y_id + bh / 2, "Identification",
+            fontsize=9, fontweight='bold', rotation=90,
+            va='center', ha='center', color=C_LABEL)
+    ax.text(label_x, y_sc + bh / 2, "Screening",
+            fontsize=9, fontweight='bold', rotation=90,
+            va='center', ha='center', color=C_LABEL)
+    ax.text(label_x, y_in + bh / 2, "Included",
+            fontsize=9, fontweight='bold', rotation=90,
+            va='center', ha='center', color=C_LABEL)
+
+    # ================= 分隔线 =================
+    line_y1 = y_sc + bh + gap * 0.45
+    line_y2 = y_in + bh + gap * 0.45
+    ax.plot([1.0, 9.5], [line_y1, line_y1], linestyle='--', color='#D5D8DC', lw=0.8, zorder=0)
+    ax.plot([1.0, 9.5], [line_y2, line_y2], linestyle='--', color='#D5D8DC', lw=0.8, zorder=0)
+
+    # ================= 保存 =================
+    plt.tight_layout(pad=0.3)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    print(f"✅ PRISMA 流程图绘制成功！已保存至: {output_path}")
-    plt.show()
+    plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+    print(f"PRISMA flowchart saved to: {output_path}")
+    plt.close()
+
 
 if __name__ == "__main__":
     draw_prisma_chart()
